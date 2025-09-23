@@ -1,0 +1,12 @@
+.link {
+  color: var(--color-text2);
+}
+.link__underline {
+  content: "";
+  display: block;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 1px;
+  width: 100%;
+}
+
+/*# sourceMappingURL=styles.module.css.map */

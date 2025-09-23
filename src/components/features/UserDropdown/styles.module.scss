@@ -1,0 +1,45 @@
+@use '@/app/styles/mixins.scss' as m;
+.container {
+    position: relative;
+}
+
+.button {
+    color: var(--color-secondary2);
+}
+
+.dropdown {
+    padding: 18px 20px;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(150px);
+    position: absolute;
+    top: calc(100% + 5px);
+    right: 0;
+}
+
+.nav {
+    &__list {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        row-gap: 13px;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+    }
+
+    &__action {
+        display: inline-flex;
+        column-gap: 16px;
+        text-wrap: nowrap;
+        font-size: 14px;
+        font-weight: 400;
+        color: var(--color-primary);
+
+        @include m.media-hover {
+            color: var(--color-primary1);
+        }
+    }
+}

@@ -1,0 +1,11 @@
+.nav__list {
+  display: flex;
+  column-gap: 48px;
+}
+@media (max-width: 1024px) {
+  .nav__list {
+    column-gap: 24px;
+  }
+}
+
+/*# sourceMappingURL=styles.module.css.map */

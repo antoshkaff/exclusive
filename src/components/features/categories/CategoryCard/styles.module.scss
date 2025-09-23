@@ -1,0 +1,43 @@
+@use '@/app/styles/mixins.scss' as m;
+
+.card {
+    @include m.flex-center;
+
+    flex-direction: column;
+    row-gap: 16px;
+    border: var(--border);
+    border-radius: 4px;
+    height: 145px;
+    width: 170px;
+    color: var(--color-text2);
+    transition:
+        color var(--transition-duration),
+        background-color var(--transition-duration);
+
+    @include m.media-hover {
+        color: var(--color-primary);
+        background-color: var(--color-secondary2);
+    }
+
+    @media (max-width: 480px) {
+        height: 135px;
+        width: 130px;
+        row-gap: 8px;
+        padding-inline: 4px;
+
+        svg {
+            height: 44px;
+            aspect-ratio: 1;
+        }
+    }
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+
+    @media (max-width: 480px) {
+        font-size: 14px;
+    }
+}

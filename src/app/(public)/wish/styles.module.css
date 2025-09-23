@@ -1,0 +1,20 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  row-gap: 60px;
+  padding-block: 40px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header__title {
+  font-size: 20px;
+}
+.header__action {
+  padding-inline: 48px;
+}
+
+/*# sourceMappingURL=styles.module.css.map */

@@ -1,0 +1,11 @@
+.container {
+    display: grid;
+    grid-template-columns: auto fit-content(400px);
+    justify-content: center;
+    justify-items: center;
+    gap: 70px;
+
+    @media (max-width: 1280px) {
+        grid-template-columns: 1fr;
+    }
+}

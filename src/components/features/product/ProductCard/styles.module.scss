@@ -1,0 +1,61 @@
+@use '@/app/styles/mixins.scss' as m;
+
+.product {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+    border-radius: 4px;
+    max-width: 270px;
+    color: var(--color-text2);
+
+    transition: color var(--transition-duration);
+
+    @include m.media-hover {
+        .header {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        }
+        color: var(--color-primary1);
+    }
+}
+
+.header {
+    height: 250px;
+    width: 270px;
+    background-color: var(--color-secondary);
+    position: relative;
+    transition: box-shadow var(--transition-duration);
+
+    &__actions {
+        top: 12px;
+        right: 12px;
+        position: absolute;
+    }
+}
+
+.imageWrapper {
+    @include m.flex-center;
+
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+}
+
+.title,
+.price {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 150%;
+}
+
+.title {
+    color: inherit;
+}
+.price {
+    color: var(--color-secondary2);
+}

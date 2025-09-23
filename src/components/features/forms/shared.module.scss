@@ -1,0 +1,30 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+
+  &__error {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-secondary2);
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 14px;
+
+    a {
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    row-gap: 20px;
+  }
+}

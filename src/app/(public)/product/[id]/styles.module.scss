@@ -1,0 +1,14 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    row-gap: 140px;
+    padding-block: 80px;
+
+    @media (max-width: 768px) {
+        padding-block: 60px;
+    }
+
+    @media (max-width: 480px) {
+        padding-block: 40px;
+    }
+}

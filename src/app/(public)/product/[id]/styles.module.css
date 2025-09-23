@@ -1,0 +1,18 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  row-gap: 140px;
+  padding-block: 80px;
+}
+@media (max-width: 768px) {
+  .page {
+    padding-block: 60px;
+  }
+}
+@media (max-width: 480px) {
+  .page {
+    padding-block: 40px;
+  }
+}
+
+/*# sourceMappingURL=styles.module.css.map */

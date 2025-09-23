@@ -1,0 +1,21 @@
+.container {
+  --gap: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+.list {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  gap: var(--gap);
+  flex-wrap: wrap;
+}
+
+.skeleton {
+  height: 340px;
+  width: 270px;
+}
+
+/*# sourceMappingURL=styles.module.css.map */

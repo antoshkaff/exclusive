@@ -1,0 +1,45 @@
+@use '@/app/styles/mixins.scss' as m;
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 40px 16px;
+    border-bottom: var(--border);
+
+    &__features {
+        display: flex;
+        column-gap: 24px;
+
+        @media (max-width: 1024px) {
+            width: 100%;
+            justify-content: end;
+        }
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        column-gap: 16px;
+
+        a {
+            @include m.flex-center;
+        }
+
+        @media (max-width: 1024px) {
+            column-gap: 12px;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        flex-wrap: wrap;
+        gap: 16px;
+        padding-block: 30px 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .inputContainer {
+        width: 100%;
+    }
+}

@@ -1,0 +1,73 @@
+@use '@/app/styles/mixins.scss' as m;
+
+.lg {
+    height: 56px;
+
+    @media (max-width: 480px) {
+        height: 46px;
+    }
+}
+
+.md {
+    height: 44px;
+}
+
+.button {
+    padding-inline: 48px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    transition:
+        color var(--transition-duration),
+        background-color var(--transition-duration);
+
+    &--accent {
+        background-color: var(--color-button2);
+        color: var(--color-text);
+
+        @include m.media-hover {
+            background-color: var(--color-button-hover1);
+        }
+    }
+
+    &--bordered {
+        @include m.flex-center;
+
+        border: var(--border);
+        background-color: transparent;
+        color: var(--color-text2);
+        padding-inline: 0;
+
+        @include m.media-hover {
+            color: var(--color-text1);
+        }
+    }
+
+    &--transparent {
+        @include m.flex-center;
+
+        height: fit-content;
+        padding-inline: 0;
+        color: var(--color-text2);
+        background-color: transparent;
+
+        @include m.media-hover {
+            color: var(--color-text1);
+        }
+    }
+
+    &--circle {
+        @include m.flex-center;
+
+        height: 34px;
+        aspect-ratio: 1;
+        background-color: var(--color-primary);
+        border-radius: 50%;
+        padding-inline: 0;
+        color: var(--color-text2);
+
+        @include m.media-hover {
+            color: var(--color-text1);
+        }
+    }
+}

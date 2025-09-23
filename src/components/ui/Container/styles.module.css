@@ -1,0 +1,13 @@
+.container {
+  display: inherit;
+  justify-content: inherit;
+  align-items: inherit;
+  gap: inherit;
+  flex-wrap: inherit;
+  max-width: 1920px;
+  width: 100%;
+  padding-inline: var(--container-padding-inline);
+  margin: 0 auto;
+}
+
+/*# sourceMappingURL=styles.module.css.map */

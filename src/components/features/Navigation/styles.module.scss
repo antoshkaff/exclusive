@@ -1,0 +1,10 @@
+.nav {
+    &__list {
+        display: flex;
+        column-gap: 48px;
+
+        @media (max-width: 1024px) {
+            column-gap: 24px;
+        }
+    }
+}

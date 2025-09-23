@@ -1,0 +1,51 @@
+@use 'styles/normalize' as *;
+@use 'styles/root' as *;
+@use 'styles/mixins' as m;
+
+html,
+body {
+    min-height: 100vh;
+    font-family: var(--font-family-base);
+    overflow-x: hidden;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.skeleton {
+    --sk-base: #f6f7f9;
+    --sk-highlight: #e9ebef;
+
+    inline-size: 100%;
+    border-radius: var(--sk-radius);
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(
+        100deg,
+        var(--sk-base) 20%,
+        var(--sk-highlight) 40%,
+        var(--sk-base) 60%
+    );
+    background-size: 200% 100%;
+    animation: shimmer-rtl 1.2s ease-in-out infinite;
+}
+
+@keyframes shimmer-rtl {
+    0% {
+        background-position: 100% 0;
+    }
+    100% {
+        background-position: -100% 0;
+    }
+}

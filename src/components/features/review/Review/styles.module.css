@@ -1,0 +1,29 @@
+.review {
+  display: flex;
+  flex-direction: column;
+  padding: 18px;
+  row-gap: 18px;
+  border: var(--border);
+  border-radius: 4px;
+}
+.review__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 30px;
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+}
+.user__name {
+  font-size: 18px;
+  font-weight: 500;
+}
+.user__email {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+/*# sourceMappingURL=styles.module.css.map */

@@ -1,0 +1,8 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  row-gap: 70px;
+  padding-block: 40px;
+}
+
+/*# sourceMappingURL=styles.module.css.map */

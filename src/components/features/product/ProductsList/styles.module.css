@@ -1,0 +1,9 @@
+.list {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+/*# sourceMappingURL=styles.module.css.map */
