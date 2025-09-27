@@ -7,6 +7,7 @@ import clsx from 'clsx';
 type QuantityStepperProps = {
     value: number;
     onChange: (n: number) => void;
+    className?: string;
     min?: number;
     max?: number;
     step?: number;
@@ -15,6 +16,7 @@ type QuantityStepperProps = {
 const QuantityStepper = ({
     onChange,
     value,
+    className,
     min = 1,
     max = 99,
     step = 1,
@@ -24,7 +26,7 @@ const QuantityStepper = ({
     const inc = () => onChange(clamp(value + step));
 
     return (
-        <div className={styles.stepper}>
+        <div className={clsx(styles.stepper, className)}>
             <button
                 onClick={dec}
                 className={styles.stepper__button}

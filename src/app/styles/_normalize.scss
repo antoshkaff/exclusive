@@ -13,8 +13,11 @@ ul {
 button {
     outline: none;
     border: none;
-    cursor: pointer;
     font-family: var(--font-family-base);
+
+    &:not(:disabled) {
+        cursor: pointer;
+    }
 }
 
 a {
@@ -50,4 +53,3 @@ address {
     font-weight: inherit;
     font-style: inherit;
 }
-

@@ -18,6 +18,9 @@
     "react": "19.1.0",
     "react-dom": "19.1.0",
     "sass": "^1.92.1",
+    "simplebar": "^6.3.2",
+    "simplebar-react": "^3.3.2",
+    "stripe": "^18.5.0",
     "zod": "^4.1.11"
   },
   "devDependencies": {

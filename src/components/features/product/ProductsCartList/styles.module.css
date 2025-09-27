@@ -1,0 +1,29 @@
+.container,
+.list {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--row-gap);
+  --row-gap: 40px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+  max-height: fit-content;
+}
+
+.content {
+  min-height: 0;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background-color: var(--color-primary);
+  border-radius: 4px;
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.05);
+  padding: 24px 40px;
+}
+
+/*# sourceMappingURL=styles.module.css.map */

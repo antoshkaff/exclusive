@@ -2,6 +2,8 @@ import React, { ReactNode } from 'react';
 import { WishlistProvider } from '@/context/WishlistContext';
 import { AuthProvider } from '@/context/AuthContext';
 import { IPublicUser } from '@/shared/types/user.interface';
+import { CartProvider } from '@/context/CartContext';
+import { ModalProvider } from '@/context/ModalContext';
 
 const Providers = ({
     children,
@@ -12,9 +14,13 @@ const Providers = ({
 }) => {
     return (
         <>
-            <AuthProvider initialUser={initialUser}>
-                <WishlistProvider>{children}</WishlistProvider>
-            </AuthProvider>
+            <ModalProvider>
+                <AuthProvider initialUser={initialUser}>
+                    <CartProvider>
+                        <WishlistProvider>{children}</WishlistProvider>
+                    </CartProvider>
+                </AuthProvider>
+            </ModalProvider>
         </>
     );
 };

@@ -11,8 +11,10 @@ ul {
 button {
   outline: none;
   border: none;
-  cursor: pointer;
   font-family: var(--font-family-base);
+}
+button:not(:disabled) {
+  cursor: pointer;
 }
 
 a {
@@ -23,12 +25,12 @@ a {
   transition: color var(--transition-duration);
 }
 @media (hover: hover) {
-  a:hover {
+  a:not(:disabled):hover {
     color: var(--color-primary1);
   }
 }
 @media (hover: none) {
-  a:active {
+  a:not(:disabled):active {
     color: var(--color-primary1);
   }
 }
@@ -90,7 +92,6 @@ html,
 body {
   min-height: 100vh;
   font-family: var(--font-family-base);
-  overflow-x: hidden;
 }
 
 .visually-hidden {
@@ -116,6 +117,17 @@ body {
   background: linear-gradient(100deg, var(--sk-base) 20%, var(--sk-highlight) 40%, var(--sk-base) 60%);
   background-size: 200% 100%;
   animation: shimmer-rtl 1.2s ease-in-out infinite;
+}
+
+.simplebar-scrollbar::before {
+  background: var(--color-secondary2);
+  opacity: 0.8 !important;
+}
+
+.simplebar-track.simplebar-vertical {
+  width: 8px;
+  background: rgba(193, 193, 193, 0.35);
+  border-radius: 8px;
 }
 
 @keyframes shimmer-rtl {

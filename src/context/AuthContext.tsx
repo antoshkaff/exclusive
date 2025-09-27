@@ -1,8 +1,15 @@
 'use client';
 
-import { createContext, ReactNode, useContext, useState } from 'react';
+import {
+    createContext,
+    ReactNode,
+    useCallback,
+    useContext,
+    useMemo,
+    useState,
+} from 'react';
 import { IPublicUser } from '@/shared/types/user.interface';
-import { apiLogin, apiRegister } from '@/modules/auth/auth.api';
+import { apiLogin, apiLogout, apiRegister } from '@/modules/auth/auth.api';
 import { useRouter } from 'next/navigation';
 import { ROUTES } from '@/config/routes.config';
 
@@ -13,6 +20,7 @@ interface IAuthState {
 interface IAuthActions {
     register: (data: { email: string; password: string }) => void;
     login: (data: { email: string; password: string }) => void;
+    logout: () => void;
 }
 
 const AuthStateContext = createContext<IAuthState | null>(null);
@@ -28,28 +36,56 @@ export const AuthProvider = ({
     const [user, setUser] = useState<IPublicUser | null>(initialUser);
     const router = useRouter();
 
-    const register = async (data: { email: string; password: string }) => {
-        try {
-            await apiRegister(data);
-            router.replace(ROUTES.SIGN_IN);
-        } catch (e) {
-            throw new Error((e as Error).message);
-        }
-    };
+    const register = useCallback(
+        async (data: { email: string; password: string }) => {
+            try {
+                await apiRegister(data);
+                router.replace(ROUTES.SIGN_IN);
+            } catch (e) {
+                throw new Error((e as Error).message);
+            }
+        },
+        [],
+    );
 
-    const login = async (data: { email: string; password: string }) => {
+    const login = useCallback(
+        async (data: { email: string; password: string }) => {
+            try {
+                const user = await apiLogin(data);
+                setUser(user);
+                router.replace(ROUTES.HOME);
+            } catch (e) {
+                throw new Error((e as Error).message);
+            }
+        },
+        [],
+    );
+
+    const logout = useCallback(async () => {
         try {
-            const user = await apiLogin(data);
-            setUser(user);
-            router.replace(ROUTES.HOME);
+            await apiLogout();
+            setUser(null);
+            router.replace(ROUTES.SIGN_IN);
+            router.refresh();
         } catch (e) {
             throw new Error((e as Error).message);
         }
-    };
+    }, []);
+
+    const actions: IAuthActions = useMemo(
+        () => ({
+            register,
+            login,
+            logout,
+        }),
+        [register, login, logout],
+    );
+
+    const state: IAuthState = useMemo(() => ({ user }), [user]);
 
     return (
-        <AuthActionsContext.Provider value={{ register, login }}>
-            <AuthStateContext.Provider value={{ user }}>
+        <AuthActionsContext.Provider value={actions}>
+            <AuthStateContext.Provider value={state}>
                 {children}
             </AuthStateContext.Provider>
         </AuthActionsContext.Provider>

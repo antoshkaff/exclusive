@@ -1,23 +1,17 @@
-'use client';
-
 import styles from './styles.module.scss';
 import { IProduct } from '@/shared/types/product.interface';
 import Rating from '@/components/features/Rating';
-import QuantityStepper from '@/components/ui/QuantityStepper';
-import { useState } from 'react';
-import Button from '@/components/ui/Button';
-import HeartIcon from '@/shared/icons/HeartIcon';
 import clsx from 'clsx';
 import DeliveryIcon from '@/shared/icons/DeliveryIcon';
 import ReturnIcon from '@/shared/icons/ReturnIcon';
+import WishlistButton from '../../../buttons/WishlistButton';
+import BuyProductButton from '../../../buttons/BuyProductButton';
 
 type ProductDetailsProps = {
     product: IProduct;
 };
 
 const ProductDetails = ({ product }: ProductDetailsProps) => {
-    const [quantity, setQuantity] = useState(1);
-
     return (
         <section className={styles.product}>
             <header className={styles.product__header}>
@@ -42,17 +36,8 @@ const ProductDetails = ({ product }: ProductDetailsProps) => {
             </div>
             <footer className={styles.product__footer}>
                 <div className={styles.actionsContainer}>
-                    <QuantityStepper onChange={setQuantity} value={quantity} />
-                    <Button variant={'accent'} size={'md'}>
-                        Buy now
-                    </Button>
-                    <Button
-                        variant={'bordered'}
-                        className={styles.wishButton}
-                        aria-label={'Add to wish'}
-                    >
-                        <HeartIcon />
-                    </Button>
+                    <BuyProductButton product={product} />
+                    <WishlistButton product={product} />
                 </div>
                 <ul className={styles.terms}>
                     <li className={styles.terms__item}>

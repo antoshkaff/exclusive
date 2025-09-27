@@ -2,12 +2,10 @@ import styles from './styles.module.scss';
 import Link from 'next/link';
 import { IProduct } from '@/shared/types/product.interface';
 import Image from 'next/image';
-import Button from '@/components/ui/Button';
-import HeartIcon from '@/shared/icons/HeartIcon';
 import Rating from '@/components/features/Rating';
 import { memo } from 'react';
 import { ROUTES } from '@/config/routes.config';
-import WishlistButton from '@/components/features/WishlistButton';
+import WishlistButton from '../../buttons/WishlistButton';
 
 type ProductCardProps = {
     product: IProduct;

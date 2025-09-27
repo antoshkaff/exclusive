@@ -18,3 +18,26 @@ model User {
   email String @unique
   password String
 }
+
+model Order {
+  id          String      @id @default(cuid())
+  sessionId   String      @unique
+  userId      String
+  email       String?
+  currency    String      @default("usd")
+  amountTotal Int         @default(0)
+  createdAt   DateTime    @default(now())
+
+  items       OrderItem[]
+}
+
+model OrderItem {
+  id        String  @id @default(cuid())
+  orderId   String
+  title     String
+  unitPrice Int
+  quantity  Int
+  image     String?
+
+  order     Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+}

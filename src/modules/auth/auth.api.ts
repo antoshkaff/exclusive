@@ -39,3 +39,18 @@ export async function apiLogin(payload: {
 
     return json as IPublicUser;
 }
+
+export async function apiLogout() {
+    const res = await fetch('/api/auth/logout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+    });
+
+    const text = await res.text();
+    const json = text ? JSON.parse(text) : null;
+
+    if (!res.ok) {
+        throw new Error(json?.error || 'Something get wrong');
+    }
+}

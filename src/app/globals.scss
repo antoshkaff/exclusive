@@ -6,7 +6,6 @@ html,
 body {
     min-height: 100vh;
     font-family: var(--font-family-base);
-    overflow-x: hidden;
 }
 
 .visually-hidden {
@@ -39,6 +38,17 @@ body {
     );
     background-size: 200% 100%;
     animation: shimmer-rtl 1.2s ease-in-out infinite;
+}
+
+.simplebar-scrollbar::before {
+    background: var(--color-secondary2);
+    opacity: 0.8 !important;
+}
+
+.simplebar-track.simplebar-vertical {
+    width: 8px;
+    background: rgba(193, 193, 193, 0.35);
+    border-radius: 8px;
 }
 
 @keyframes shimmer-rtl {

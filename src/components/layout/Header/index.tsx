@@ -3,11 +3,11 @@ import Logo from '@/components/ui/Logo';
 import Navigation from '@/components/features/Navigation';
 import Input from '@/components/ui/Input';
 import SearchIcon from '@/shared/icons/SearchIcon';
-import HeartIcon from '@/shared/icons/HeartIcon';
-import CartIcon from '@/shared/icons/CartIcon';
 import Container from '@/components/ui/Container';
-import Link from 'next/link';
 import UserDropdown from '@/components/features/UserDropdown';
+import { ROUTES } from '@/config/routes.config';
+import CartLink from '@/components/layout/Header/CartLink';
+import WishLink from '@/components/layout/Header/WishLink';
 
 type HeaderProps = {};
 
@@ -18,7 +18,7 @@ const Header = ({}: HeaderProps) => {
                 <Logo />
                 <Navigation />
                 <div className={styles.header__features}>
-                    <form action="/search">
+                    <form action={ROUTES.SEARCH}>
                         <Input
                             name="q"
                             size={'sm'}
@@ -29,12 +29,8 @@ const Header = ({}: HeaderProps) => {
                     </form>
 
                     <div className={styles.header__actions}>
-                        <Link href={'/wish'} aria-label="Open 'Wish' page">
-                            <HeartIcon />
-                        </Link>
-                        <Link href={'/cart'} aria-label="Open 'Cart' page">
-                            <CartIcon />
-                        </Link>
+                        <WishLink />
+                        <CartLink />
                         <UserDropdown />
                     </div>
                 </div>

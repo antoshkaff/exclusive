@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import { Poppins, Inter } from 'next/font/google';
-import '../globals.scss';
+import 'simplebar-react/dist/simplebar.min.css';
+import './globals.scss';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import { WishlistProvider } from '@/context/WishlistContext';
 import Providers from '@/app/(public)/Providers';
 import { getServerUser } from '@/server/getServerUser';
 
@@ -68,7 +68,9 @@ export default async function RootLayout({
                 <Providers initialUser={initialUser}>
                     <h1 className="visually-hidden">Exclusive</h1>
                     <Header />
-                    <main style={{ minHeight: '100vh' }}>{children}</main>
+                    <main style={{ minHeight: '100vh', overflowX: 'hidden' }}>
+                        {children}
+                    </main>
                     <Footer />
                 </Providers>
             </body>

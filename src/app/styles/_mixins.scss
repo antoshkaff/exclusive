@@ -6,13 +6,13 @@
 
 @mixin media-hover {
     @media (hover: hover) {
-        &:hover {
+        &:not(:disabled):hover {
             @content;
         }
     }
 
     @media (hover: none) {
-        &:active {
+        &:not(:disabled):active {
             @content;
         }
     }

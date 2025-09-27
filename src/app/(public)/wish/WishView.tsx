@@ -3,11 +3,19 @@
 import React from 'react';
 import styles from '@/app/(public)/wish/styles.module.scss';
 import Button from '@/components/ui/Button';
-import { useWishlistState } from '@/context/WishlistContext';
+import { useWishlistAction, useWishlistState } from '@/context/WishlistContext';
 import ProductsList from '@/components/features/product/ProductsList';
+import { useCartAction } from '@/context/CartContext';
 
 const WishView = () => {
     const { wishItems } = useWishlistState();
+    const { clearWishlist } = useWishlistAction();
+    const { addToCartArray } = useCartAction();
+
+    const handleMoveToCart = () => {
+        addToCartArray(wishItems);
+        clearWishlist();
+    };
 
     return (
         <>
@@ -15,7 +23,12 @@ const WishView = () => {
                 <span className={styles.header__title}>
                     Wishlist ({wishItems.length})
                 </span>
-                <Button variant={'bordered'} className={styles.header__action}>
+                <Button
+                    variant={'bordered'}
+                    disabled={!wishItems.length}
+                    className={styles.header__action}
+                    onClick={handleMoveToCart}
+                >
                     Move all to Bag
                 </Button>
             </header>

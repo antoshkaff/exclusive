@@ -1,0 +1,19 @@
+.link {
+    position: relative;
+
+    &__label {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        top: 0;
+        right: 0;
+        height: 18px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background-color: var(--color-secondary2);
+        position: absolute;
+        font-size: 11px;
+        color: var(--color-primary);
+        pointer-events: none;
+    }
+}

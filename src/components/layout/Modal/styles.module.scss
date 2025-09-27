@@ -1,0 +1,43 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    z-index: 1000;
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    row-gap: 22px;
+    background-color: var(--color-primary);
+    padding: 32px 36px 32px 32px;
+    border-radius: 5px;
+    position: relative;
+    max-width: 50%;
+
+    &__close {
+        top: 6px;
+        right: 6px;
+        position: absolute;
+    }
+    &__header {
+        text-align: center;
+    }
+
+    &__icon {
+        height: 64px;
+        aspect-ratio: 1;
+    }
+
+    &__body {
+        line-height: 150%;
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: center;
+    }
+}

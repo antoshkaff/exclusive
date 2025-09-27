@@ -15,6 +15,7 @@ import { LocalstorageService } from '@/services/LocalstorageService';
 
 interface IWishlistActions {
     toggleToWish: (product: IProduct) => void;
+    clearWishlist: () => void;
 }
 
 interface IWishlistState {
@@ -47,18 +48,23 @@ export const WishlistProvider = ({ children }: { children: ReactNode }) => {
         });
     }, []);
 
+    const clearWishlist = useCallback(() => {
+        setWishItems([]);
+        LocalstorageService.save(LOCAL_STORAGE_KEYS.WISH_LIST, []);
+    }, []);
+
     const actions = useMemo<IWishlistActions>(
-        () => ({ toggleToWish }),
-        [toggleToWish],
+        () => ({ toggleToWish, clearWishlist }),
+        [toggleToWish, clearWishlist],
     );
 
     const state = useMemo<IWishlistState>(() => ({ wishItems }), [wishItems]);
 
     return (
         <WishlistActionContext.Provider value={actions}>
-            <WishlistStateContext value={state}>
+            <WishlistStateContext.Provider value={state}>
                 {children}
-            </WishlistStateContext>
+            </WishlistStateContext.Provider>
         </WishlistActionContext.Provider>
     );
 };
