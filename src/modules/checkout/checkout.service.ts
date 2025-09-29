@@ -40,7 +40,7 @@ export class CheckoutService {
                 mode: 'payment',
                 line_items,
                 success_url: `${baseUrl}/payment?sessionId={CHECKOUT_SESSION_ID}`,
-                cancel_url: `${baseUrl}/payment?sessionId={CHECKOUT_SESSION_ID}`,
+                cancel_url: `${baseUrl}/cart`,
                 metadata: { userId: session?.id || null },
             });
         } catch (e) {
