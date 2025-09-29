@@ -65,7 +65,7 @@ export class ProductsService {
             const products: IProduct[] = json.products;
 
             return { products: products, response: json };
-        } catch (error) {
+        } catch {
             return { products: [], response: null, error: true };
         }
     }

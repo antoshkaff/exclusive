@@ -4,9 +4,7 @@ import Container from '@/components/ui/Container';
 import MailIcon from '@/shared/icons/MailIcon';
 import Link from 'next/link';
 
-type FooterProps = {};
-
-const Footer = ({}: FooterProps) => {
+const Footer = () => {
     return (
         <footer className={styles.footer}>
             <div className={styles.footer__inner}>

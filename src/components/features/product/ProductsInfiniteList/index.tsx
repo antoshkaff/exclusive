@@ -14,7 +14,7 @@ export default function ProductsInfiniteList({
     total,
     limit,
 }: {
-    initial: any[];
+    initial: IProduct[];
     total: number;
     limit: number;
 }) {

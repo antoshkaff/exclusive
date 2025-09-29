@@ -1,7 +1,6 @@
 import styles from './styles.module.scss';
 import MinusIcon from '@/shared/icons/MinusIcon';
 import PlusIcon from '@/shared/icons/PlusIcon';
-import { useId } from 'react';
 import clsx from 'clsx';
 
 type QuantityStepperProps = {

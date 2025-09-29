@@ -25,7 +25,7 @@ export const useCheckout = () => {
                     type: 'warning',
                 });
 
-                window.open(url, '_blank', 'noopener');
+                window.location.href = url;
                 return id;
             } catch (e) {
                 setIsLoading(false);

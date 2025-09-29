@@ -58,7 +58,7 @@ export function useCheckoutPolling({
                 console.log((e as Error).message);
             }
         }, intervalMs);
-    }, [intervalMs, onPaid, onTick, openModal, sessionIdRef, stop]);
+    }, [intervalMs, onPaid, onTick, openModal, sessionIdRef, stop, router]);
 
     useEffect(() => () => stop(), [stop]);
 

@@ -1,0 +1,36 @@
+.order {
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+    padding: 24px;
+    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.05);
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        row-gap: 22px;
+    }
+
+    &__item {
+        display: grid;
+        align-items: center;
+        gap: 18px;
+        grid-template-columns: 64px repeat(3, 1fr);
+
+        @media (max-width: 768px) {
+            font-size: 14px;
+            grid-template-columns: 64px 1fr auto;
+        }
+    }
+
+    &__footer {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+    }
+
+    &__time {
+        font-size: 14px;
+        color: var(--color-primary1);
+    }
+}

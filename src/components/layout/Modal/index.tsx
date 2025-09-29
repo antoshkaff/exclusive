@@ -69,7 +69,7 @@ export const Modal = ({
 
     const handleClose = () => {
         onClose();
-        action && action();
+        if (action) action();
     };
 
     return (

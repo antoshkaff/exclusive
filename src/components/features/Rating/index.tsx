@@ -1,10 +1,9 @@
 import styles from './styles.module.scss';
-import clsx from 'clsx';
 import StarIcon from '@/shared/icons/StarIcon';
 
 type RatingProps = {
     data: number;
-    reviews?: Object[];
+    reviews?: object[];
 };
 
 const Rating = ({ data, reviews }: RatingProps) => {

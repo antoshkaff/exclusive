@@ -88,7 +88,7 @@ const SignInForm = () => {
                 <Button variant={'accent'} type={'submit'}>
                     {isLoading ? 'Loading...' : 'Log in'}
                 </Button>
-                <Link href={ROUTES.SIGN_UP}>Don't Have An Account?</Link>
+                <Link href={ROUTES.SIGN_UP}>Don&apos;t Have An Account?</Link>
             </div>
         </form>
     );

@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 
-export function useFetching<TArgs extends any[], TResult>(
+export function useFetching<TArgs extends unknown[], TResult>(
     callback: (...args: TArgs) => Promise<TResult> | TResult,
 ): [
     (...args: TArgs) => Promise<TResult | undefined>,

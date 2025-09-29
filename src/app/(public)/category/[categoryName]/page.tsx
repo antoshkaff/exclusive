@@ -5,7 +5,7 @@ import styles from '@/app/(public)/shop/styles.module.scss';
 import Section from '@/components/layout/Section';
 import ProductsInfiniteList from '@/components/features/product/ProductsInfiniteList';
 import { Params } from 'next/dist/server/request/params';
-import { formatTitle } from '@/shared/utils/formatTitle';
+import { formatTitle } from '@/shared/utils/formatters';
 
 export const generateMetadata = async ({
     params,

@@ -7,9 +7,7 @@ import NavLink from '@/components/ui/NavLink';
 import { ROUTES } from '@/config/routes.config';
 import { useAuthState } from '@/context/AuthContext';
 
-type NavigationProps = {};
-
-const Navigation = ({}: NavigationProps) => {
+const Navigation = () => {
     const pathname = usePathname();
     const { user } = useAuthState();
 

@@ -45,7 +45,7 @@ export const AuthProvider = ({
                 throw new Error((e as Error).message);
             }
         },
-        [],
+        [router],
     );
 
     const login = useCallback(
@@ -58,7 +58,7 @@ export const AuthProvider = ({
                 throw new Error((e as Error).message);
             }
         },
-        [],
+        [router],
     );
 
     const logout = useCallback(async () => {
@@ -70,7 +70,7 @@ export const AuthProvider = ({
         } catch (e) {
             throw new Error((e as Error).message);
         }
-    }, []);
+    }, [router]);
 
     const actions: IAuthActions = useMemo(
         () => ({

@@ -1,5 +1,4 @@
 'use client';
-import styles from './styles.module.scss';
 import { useAuthActions, useAuthState } from '@/context/AuthContext';
 import { useEffect, useRef, useState } from 'react';
 import UserIcon from '@/shared/icons/UserIcon';
@@ -11,10 +10,9 @@ import LogoutIcon from '@/shared/icons/LogoutIcon';
 import { AnimatePresence, motion } from 'framer-motion';
 import { TRANSITIONS } from '@/shared/animations/transitions';
 import { useOutsideClick } from '@/hooks/useOutsideClick';
+import styles from './styles.module.scss';
 
-type UserDropdownProps = {};
-
-const UserDropdown = ({}: UserDropdownProps) => {
+const UserDropdown = () => {
     const { user } = useAuthState();
     const { logout } = useAuthActions();
 

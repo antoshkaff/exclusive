@@ -12,6 +12,7 @@
 @media (max-width: 480px) {
   .page {
     padding-block: 20px;
+    row-gap: 40px;
   }
 }
 

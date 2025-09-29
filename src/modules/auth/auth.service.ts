@@ -17,7 +17,7 @@ export class AuthService {
             const { email, password } = LoginDto.parse(input);
 
             const user = await UserDao.findUserByEmail(email);
-            console.log(user);
+
             if (!user) {
                 return {
                     ok: false,

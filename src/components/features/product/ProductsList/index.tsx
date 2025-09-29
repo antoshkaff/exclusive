@@ -1,3 +1,5 @@
+'use client';
+
 import styles from './styles.module.scss';
 import { IProduct } from '@/shared/types/product.interface';
 import ProductCard from '@/components/features/product/ProductCard';

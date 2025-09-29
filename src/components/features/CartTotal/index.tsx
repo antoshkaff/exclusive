@@ -11,7 +11,7 @@ const CartTotal = () => {
     const { isLoading, startCheckout, stopLoading, sessionIdRef } =
         useCheckout();
 
-    const { start: startPolling, stop: stopPolling } = useCheckoutPolling({
+    const { start: startPolling } = useCheckoutPolling({
         sessionIdRef,
         intervalMs: 2000,
         onPaid: () => {

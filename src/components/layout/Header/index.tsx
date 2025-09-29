@@ -9,9 +9,7 @@ import { ROUTES } from '@/config/routes.config';
 import CartLink from '@/components/layout/Header/CartLink';
 import WishLink from '@/components/layout/Header/WishLink';
 
-type HeaderProps = {};
-
-const Header = ({}: HeaderProps) => {
+const Header = () => {
     return (
         <header className={styles.header}>
             <Container>

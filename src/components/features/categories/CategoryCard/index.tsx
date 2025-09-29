@@ -1,5 +1,5 @@
 import styles from './styles.module.scss';
-import { formatTitle } from '@/shared/utils/formatTitle';
+import { formatTitle } from '@/shared/utils/formatters';
 import Link from 'next/link';
 import PhoneIcon from '@/shared/icons/PhoneIcon';
 import { ROUTES } from '@/config/routes.config';

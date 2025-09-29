@@ -1,18 +1,23 @@
 import { prisma } from '@/shared/prisma';
-import type { OrderCreateInput, OrderRecord } from '@/modules/orders/types';
+import type {
+    OrderCreateInput,
+    OrderListOptions,
+    OrderListResult,
+    OrderRecord,
+} from '@/modules/order/order.types';
+import { Prisma } from '@prisma/client';
 
-class OrdersDao {
-    async findBySessionId(sessionId: string): Promise<OrderRecord | null> {
+export class OrdersDao {
+    static async findBySessionId(
+        sessionId: string,
+    ): Promise<OrderRecord | null> {
         return prisma.order.findUnique({ where: { sessionId } });
     }
 
-    /**
-     * Creates Order and nested OrderItems in a single transaction.
-     * Adds minimal idempotency protection at DB level via unique sessionId.
-     */
-    async createOrderWithItems(data: OrderCreateInput): Promise<OrderRecord> {
+    static async createOrderWithItems(
+        data: OrderCreateInput,
+    ): Promise<OrderRecord> {
         return prisma.$transaction(async (tx) => {
-            // In case route-level check raced, rely on unique index on sessionId
             try {
                 const created = await tx.order.create({
                     data: {
@@ -32,8 +37,11 @@ class OrdersDao {
                     },
                 });
                 return created as OrderRecord;
-            } catch (e: any) {
-                if (e.code === 'P2002') {
+            } catch (e: unknown) {
+                if (
+                    e instanceof Prisma.PrismaClientKnownRequestError &&
+                    e.code === 'P2002'
+                ) {
                     const existing = await tx.order.findUnique({
                         where: { sessionId: data.sessionId },
                     });
@@ -42,5 +50,33 @@ class OrdersDao {
                 throw e;
             }
         });
+    }
+
+    static async findManyByUserId(
+        userId: string,
+        options: OrderListOptions = {},
+    ): Promise<OrderListResult> {
+        const {
+            take = 20,
+            skip = 0,
+            includeItems = true,
+            order = 'desc',
+        } = options;
+
+        const where = { userId };
+        const [total, data] = await Promise.all([
+            prisma.order.count({ where }),
+            prisma.order.findMany({
+                where,
+                orderBy: { createdAt: order },
+                take,
+                skip,
+                include: {
+                    items: includeItems,
+                },
+            }),
+        ]);
+
+        return { total, data };
     }
 }

@@ -1,0 +1,35 @@
+.order {
+  display: flex;
+  flex-direction: column;
+  row-gap: 32px;
+  padding: 24px;
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.05);
+}
+.order__list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 22px;
+}
+.order__item {
+  display: grid;
+  align-items: center;
+  gap: 18px;
+  grid-template-columns: 64px repeat(3, 1fr);
+}
+@media (max-width: 768px) {
+  .order__item {
+    font-size: 14px;
+    grid-template-columns: 64px 1fr auto;
+  }
+}
+.order__footer {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+.order__time {
+  font-size: 14px;
+  color: var(--color-primary1);
+}
+
+/*# sourceMappingURL=styles.module.css.map */

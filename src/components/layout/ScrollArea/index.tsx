@@ -7,7 +7,7 @@ type ScrollAreaProps = {
     className?: string;
 };
 
-const ScrollArea = ({ className, children }: ScrollAreaProps) => {
+const ScrollArea = ({ children }: ScrollAreaProps) => {
     return (
         <SimpleBar className={styles.container} autoHide={false}>
             {children}

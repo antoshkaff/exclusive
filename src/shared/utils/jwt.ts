@@ -1,4 +1,5 @@
 import { JWTPayload, jwtVerify, SignJWT } from 'jose';
+import { IJWTPayload } from '@/shared/types/jwt.interface';
 
 const secret = new TextEncoder().encode(process.env.JWT_SECRET);
 const expiresIn = '7d';
@@ -14,7 +15,8 @@ export async function signJwt(payload: JWTPayload) {
 export async function verifyToken(token?: string) {
     if (!token) return null;
     try {
-        return await jwtVerify(token, secret);
+        const { payload } = await jwtVerify<IJWTPayload>(token, secret);
+        return payload;
     } catch {
         return null;
     }

@@ -76,6 +76,10 @@
         aspect-ratio: 1/2;
         border-radius: 4px;
     }
+
+    @media (max-width: 480px) {
+        font-size: 14px;
+    }
 }
 
 .subtitle {
@@ -86,5 +90,9 @@
 
     @media (max-width: 768px) {
         font-size: 32px;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 24px;
     }
 }

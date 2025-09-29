@@ -114,7 +114,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
             addToCartArray,
             clearCart,
         }),
-        [addToCart, setAmount, removeFromCart, addToCartArray],
+        [addToCart, setAmount, removeFromCart, addToCartArray, clearCart],
     );
 
     const state = useMemo<ICartState>(

@@ -1,8 +1,15 @@
 'use client';
 
-import { createContext, ReactNode, useContext, useMemo, useState } from 'react';
+import {
+    createContext,
+    ReactNode,
+    useCallback,
+    useContext,
+    useMemo,
+    useState,
+} from 'react';
 import Modal from '@/components/layout/Modal';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 
 interface IModalState {
     isOpen: boolean;
@@ -32,15 +39,15 @@ export const ModalProvider = ({ children }: { children: ReactNode }) => {
         content: '',
     });
 
-    const closeModal = () => {
+    const closeModal = useCallback(() => {
         setIsOpen(false);
         setModalContent({ title: '', type: 'warning', content: '' });
-    };
+    }, []);
 
-    const openModal = (modalContent: ModalContent) => {
+    const openModal = useCallback((modalContent: ModalContent) => {
         setIsOpen(true);
         setModalContent(modalContent);
-    };
+    }, []);
 
     const state = useMemo(() => ({ isOpen }), [isOpen]);
     const actions = useMemo(
