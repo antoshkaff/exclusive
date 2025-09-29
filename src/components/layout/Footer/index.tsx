@@ -3,6 +3,7 @@ import Input from '@/components/ui/Input';
 import Container from '@/components/ui/Container';
 import MailIcon from '@/shared/icons/MailIcon';
 import Link from 'next/link';
+import { ROUTES } from '@/config/routes.config';
 
 const Footer = () => {
     return (
@@ -47,16 +48,18 @@ const Footer = () => {
                         <nav>
                             <ul className={styles.list}>
                                 <li>
-                                    <Link href={'/'}>My Account</Link>
+                                    <Link href={ROUTES.ORDERS}>My Account</Link>
                                 </li>
                                 <li>
-                                    <Link href={'/'}>Login / Register</Link>
+                                    <Link href={ROUTES.SIGN_IN}>
+                                        Login / Register
+                                    </Link>
                                 </li>
                                 <li>
-                                    <Link href={'/'}>Cart</Link>
+                                    <Link href={ROUTES.CART}>Cart</Link>
                                 </li>
                                 <li>
-                                    <Link href={'/'}>Wishlist</Link>
+                                    <Link href={ROUTES.WISH}>Wishlist</Link>
                                 </li>
                             </ul>
                         </nav>
